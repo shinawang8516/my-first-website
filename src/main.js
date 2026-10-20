@@ -100,39 +100,47 @@ const selectedAnswers = Array(quizQuestions.length).fill(null)
 let currentQuestion = 0
 let activeCountyNationality = 'all'
 
+function getQuizScore() {
+  return quizQuestions.reduce((sum, question, index) => sum + (selectedAnswers[index] === question.answer ? 20 : 0), 0)
+}
+
 function renderQuiz() {
   const question = quizQuestions[currentQuestion]
   const stage = document.querySelector('#quiz-stage')
+  const submittedAnswer = selectedAnswers[currentQuestion]
+  const isCorrect = submittedAnswer === question.answer
   document.querySelector('#quiz-step-label').textContent = `QUESTION ${String(currentQuestion + 1).padStart(2, '0')} / 05`
   document.querySelector('#quiz-progress-fill').style.width = `${((currentQuestion + 1) / quizQuestions.length) * 100}%`
-  document.querySelector('#quiz-hint').textContent = '答案會在最後一起揭曉'
+  document.querySelector('#quiz-score-live').textContent = getQuizScore()
+  document.querySelector('#quiz-hint').textContent = submittedAnswer === null ? '選擇一個答案，立即查看解析' : '這題已完成；準備好就繼續'
   stage.innerHTML = `
     <p class="question-kicker">Q${String(currentQuestion + 1).padStart(2, '0')} <span>${question.note}</span></p>
     <h3 class="question-title">${question.prompt}</h3>
     <div class="answer-grid" role="group" aria-label="選擇答案">
-      ${question.options.map((option, index) => `<button class="answer-option ${selectedAnswers[currentQuestion] === index ? 'is-selected' : ''}" type="button" data-answer="${index}" aria-pressed="${selectedAnswers[currentQuestion] === index}"><span class="answer-letter">${String.fromCharCode(65 + index)}</span><span>${option}</span><span class="answer-check" aria-hidden="true">↗</span></button>`).join('')}
-    </div>`
+      ${question.options.map((option, index) => {
+        const chosen = submittedAnswer === index
+        const correctAnswer = submittedAnswer !== null && question.answer === index
+        const classes = ['answer-option', chosen ? 'is-selected' : '', correctAnswer ? 'is-correct-answer' : '', chosen && !isCorrect ? 'is-wrong-answer' : ''].filter(Boolean).join(' ')
+        return `<button class="${classes}" type="button" data-answer="${index}" aria-pressed="${chosen}" ${submittedAnswer !== null ? 'disabled' : ''}><span class="answer-letter">${String.fromCharCode(65 + index)}</span><span>${option}</span><span class="answer-check" aria-hidden="true">${correctAnswer ? '✓' : chosen ? '×' : '↗'}</span></button>`
+      }).join('')}
+    </div>
+    ${submittedAnswer === null ? '' : `<section class="answer-feedback ${isCorrect ? 'feedback-correct' : 'feedback-incorrect'}" role="status" aria-live="polite"><div class="feedback-result"><span class="feedback-icon" aria-hidden="true">${isCorrect ? '✓' : '!'}</span><strong>${isCorrect ? '回答正確' : '回答錯誤'}</strong><span class="feedback-points">${isCorrect ? '+20' : '0'} 分</span></div><p class="feedback-answer">正確答案：<strong>${String.fromCharCode(65 + question.answer)}. ${question.options[question.answer]}</strong></p><p class="feedback-explanation">${question.explanation}</p></section>`}`
 
   stage.querySelectorAll('[data-answer]').forEach((button) => {
     button.addEventListener('click', () => {
+      if (selectedAnswers[currentQuestion] !== null) return
       selectedAnswers[currentQuestion] = Number(button.dataset.answer)
-      stage.querySelectorAll('[data-answer]').forEach((choice) => {
-        const active = choice === button
-        choice.classList.toggle('is-selected', active)
-        choice.setAttribute('aria-pressed', String(active))
-      })
-      document.querySelector('#quiz-next').disabled = false
-      document.querySelector('#quiz-hint').textContent = '已選擇答案；完成前仍可修改'
+      renderQuiz()
     })
   })
   document.querySelector('#quiz-back').disabled = currentQuestion === 0
   const next = document.querySelector('#quiz-next')
-  next.innerHTML = currentQuestion === quizQuestions.length - 1 ? '完成測驗 <span aria-hidden="true">↗</span>' : '下一題 <span aria-hidden="true">→</span>'
-  next.disabled = selectedAnswers[currentQuestion] === null
+  next.innerHTML = currentQuestion === quizQuestions.length - 1 ? '看總分 <span aria-hidden="true">↗</span>' : '下一題 <span aria-hidden="true">→</span>'
+  next.disabled = submittedAnswer === null
 }
 
 function showQuizResults() {
-  const score = quizQuestions.reduce((sum, question, index) => sum + (selectedAnswers[index] === question.answer ? 20 : 0), 0)
+  const score = getQuizScore()
   document.querySelector('#quiz-card').hidden = true
   document.querySelector('#quiz-result').hidden = false
   document.querySelector('#result-score-number').textContent = score
@@ -184,7 +192,10 @@ function renderWorkChart(nation = 'all') {
 function initWorkChart() {
   const select = document.querySelector('#nationality-filter')
   select.innerHTML = nationalityNames.map((item) => `<option value="${item.key}">${item.label}</option>`).join('')
-  select.addEventListener('change', () => renderWorkChart(select.value))
+  select.addEventListener('change', () => {
+    document.querySelector('#nationality-filter-label').textContent = select.options[select.selectedIndex].text
+    renderWorkChart(select.value)
+  })
   renderWorkChart()
 }
 

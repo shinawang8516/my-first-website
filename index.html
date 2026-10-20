@@ -37,7 +37,7 @@
           <div class="art-label label-top">WORK<br />/ 01</div>
           <div class="art-label label-bottom">LIFE<br />/ 02</div>
           <div class="art-orbit orbit-a"></div><div class="art-orbit orbit-b"></div>
-          <div class="art-caption"><span>86.6</span><small>萬人<br />縣市統計列數</small></div>
+          <div class="art-caption"><span>86.6</span><small>萬人<br />縣市資料列總數</small></div>
           <span class="art-cross cross-a">+</span><span class="art-cross cross-b">+</span>
         </div>
         <div class="hero-bottom"><span>一座關於工作與生活的線上展場</span><span>SCROLL TO EXPLORE <b>↓</b></span></div>
@@ -47,17 +47,17 @@
         <div class="section-heading quiz-heading reveal">
           <p class="eyebrow"><span class="section-number">00</span> 入場小測驗</p>
           <h2 id="quiz-title">先猜，再看見。</h2>
-          <p>五個問題，每題 20 分。先選好答案，走完整個小測驗後，再一起揭曉。</p>
+          <p>五題、每題 20 分。選下答案就會看到對錯與解析；完成五題後，再看總分。</p>
         </div>
         <div class="quiz-layout">
           <aside class="quiz-aside reveal">
             <span class="quiz-aside-label">THE QUICK GUESS</span>
             <div class="quiz-aside-number">05<small>題</small></div>
-            <p>這是一個小小的入口。答題後，展覽會帶你看數字從哪裡來，以及它們沒有告訴我們什麼。</p>
+            <p>把第一個直覺記下來。每一題的答案，都會帶你看見統計數字的來處與界線。</p>
             <div class="quiz-aside-stamp" aria-hidden="true">先猜<br />再看</div>
           </aside>
-          <div class="quiz-card" id="quiz-card" aria-live="polite">
-            <div class="quiz-card-top"><span id="quiz-step-label">QUESTION 01 / 05</span><span>每題 20 分</span></div>
+          <div class="quiz-card" id="quiz-card">
+            <div class="quiz-card-top"><span id="quiz-step-label">QUESTION 01 / 05</span><span class="quiz-score">每題 20 分 <i></i> 目前 <strong id="quiz-score-live">0</strong> / 100</span></div>
             <div class="quiz-progress" aria-label="測驗進度"><span id="quiz-progress-fill"></span></div>
             <div id="quiz-stage"></div>
             <div class="quiz-controls">
@@ -88,7 +88,7 @@
         <div class="work-visual data-panel reveal">
           <div class="data-panel-head">
             <div><span class="micro-label">114 年度 / 2025</span><h3>工作類別分布</h3></div>
-            <label class="select-wrap"><span class="sr-only">篩選國籍</span><select id="nationality-filter" aria-label="選擇國籍篩選工作分布"></select><span aria-hidden="true">⌄</span></label>
+            <label class="select-wrap"><span class="sr-only">篩選國籍</span><select id="nationality-filter" aria-label="選擇國籍篩選工作分布"></select><span id="nationality-filter-label">所有國籍</span><span aria-hidden="true">⌄</span></label>
           </div>
           <div class="work-summary" id="work-summary"></div>
           <div class="bar-chart" id="work-chart" role="list" aria-label="依工作類別顯示人數"></div>
