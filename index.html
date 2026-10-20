@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f2efe7" />
+    <meta name="description" content="從政府公開統計出發，看見東南亞移工在台灣的工作、分布與薪資保障。" />
+    <title>看見工作，也看見人｜台灣移工數位展覽</title>
+  </head>
+  <body>
+    <div class="page-progress" aria-hidden="true"><span id="page-progress-bar"></span></div>
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="回到展覽首頁"><span class="wordmark-mark">在</span><span>在場<br /><small>IN OUR DAY</small></span></a>
+      <nav class="main-nav" aria-label="展覽導覽">
+        <a href="#quiz">先猜數字</a>
+        <a href="#work">工作與國籍</a>
+        <a href="#where">縣市分布</a>
+        <a href="#wages">薪資保障</a>
+      </nav>
+      <a class="nav-index" href="#sources"><span>資料索引</span><span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="top">
+      <section class="hero section-shell" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> 數位策展 / 台灣 × 東南亞移工</p>
+          <h1 id="hero-title">看見工作，<br /><em>也看見人。</em></h1>
+          <p class="hero-intro">從一組數字開始，走進移工在台灣的工作與日常。數字能讓我們看見規模，也提醒我們：每個統計背後，都有生活。</p>
+          <div class="hero-actions">
+            <a class="button button-dark" href="#quiz">先猜猜看 <span aria-hidden="true">↓</span></a>
+            <span class="hero-meta">資料年度<br /><strong>民國 114 年 · 2025</strong></span>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="抽象資料視覺：不同方向的線條交會，象徵工作與生活在台灣相遇" role="img">
+          <div class="art-ring art-ring-one"></div><div class="art-ring art-ring-two"></div>
+          <div class="art-sun"></div>
+          <div class="art-label label-top">WORK<br />/ 01</div>
+          <div class="art-label label-bottom">LIFE<br />/ 02</div>
+          <div class="art-orbit orbit-a"></div><div class="art-orbit orbit-b"></div>
+          <div class="art-caption"><span>86.6</span><small>萬人<br />縣市統計列數</small></div>
+          <span class="art-cross cross-a">+</span><span class="art-cross cross-b">+</span>
+        </div>
+        <div class="hero-bottom"><span>一座關於工作與生活的線上展場</span><span>SCROLL TO EXPLORE <b>↓</b></span></div>
+      </section>
+
+      <section class="quiz-section section-shell" id="quiz" aria-labelledby="quiz-title">
+        <div class="section-heading quiz-heading reveal">
+          <p class="eyebrow"><span class="section-number">00</span> 入場小測驗</p>
+          <h2 id="quiz-title">先猜，再看見。</h2>
+          <p>五個問題，每題 20 分。先選好答案，走完整個小測驗後，再一起揭曉。</p>
+        </div>
+        <div class="quiz-layout">
+          <aside class="quiz-aside reveal">
+            <span class="quiz-aside-label">THE QUICK GUESS</span>
+            <div class="quiz-aside-number">05<small>題</small></div>
+            <p>這是一個小小的入口。答題後，展覽會帶你看數字從哪裡來，以及它們沒有告訴我們什麼。</p>
+            <div class="quiz-aside-stamp" aria-hidden="true">先猜<br />再看</div>
+          </aside>
+          <div class="quiz-card" id="quiz-card" aria-live="polite">
+            <div class="quiz-card-top"><span id="quiz-step-label">QUESTION 01 / 05</span><span>每題 20 分</span></div>
+            <div class="quiz-progress" aria-label="測驗進度"><span id="quiz-progress-fill"></span></div>
+            <div id="quiz-stage"></div>
+            <div class="quiz-controls">
+              <button class="text-button" id="quiz-back" type="button">← 上一題</button>
+              <span class="quiz-hint" id="quiz-hint" aria-live="polite">答案會在最後一起揭曉</span>
+              <button class="button button-dark quiz-next" id="quiz-next" type="button" disabled>下一題 <span aria-hidden="true">→</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quiz-result" hidden aria-live="polite">
+          <div class="result-score"><p class="eyebrow">YOUR RESULT</p><strong id="result-score-number">0</strong><span>/ 100</span><p id="result-score-copy">完成測驗</p><button class="text-button" id="quiz-restart" type="button">↻ 再玩一次</button></div>
+          <div class="result-review"><div><p class="eyebrow">答案揭曉</p><h3>把數字放回它的脈絡。</h3></div><div id="answer-review-list"></div><p class="scope-note"><strong>一起讀懂統計範圍</strong>　縣市資料合計 866,275 人，行業資料合計 766,212 人。兩份資料的統計範圍不同，不能直接當成同一群人的總數比較。</p><a class="button button-outline" href="#work">繼續看展 <span aria-hidden="true">↓</span></a></div>
+        </div>
+      </section>
+
+      <section class="chapter-intro section-shell" aria-label="展覽主體">
+        <div class="chapter-intro-line"><span>THE EXHIBITION</span><span>01 — 03</span></div>
+        <p class="chapter-intro-text reveal">我們先從<br /><span>工作開始。</span></p>
+        <p class="chapter-intro-aside reveal">統計告訴我們誰在這裡、從事哪些工作；而真正理解一個議題，還需要繼續追問。</p>
+      </section>
+
+      <section class="work-section section-shell" id="work" aria-labelledby="work-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span class="section-number">01</span> 工作與國籍</p>
+          <h2 id="work-title">移工在台灣，<br /><em>做哪些工作？</em></h2>
+          <p>選一個國籍，看看產業與社福工作如何分布。人數呈現工作類型，不代表每個人的工作經驗都一樣。</p>
+        </div>
+        <div class="work-visual data-panel reveal">
+          <div class="data-panel-head">
+            <div><span class="micro-label">114 年度 / 2025</span><h3>工作類別分布</h3></div>
+            <label class="select-wrap"><span class="sr-only">篩選國籍</span><select id="nationality-filter" aria-label="選擇國籍篩選工作分布"></select><span aria-hidden="true">⌄</span></label>
+          </div>
+          <div class="work-summary" id="work-summary"></div>
+          <div class="bar-chart" id="work-chart" role="list" aria-label="依工作類別顯示人數"></div>
+          <div class="chart-foot"><span>單位：人</span><span id="work-scope-label">來源資料合計 766,212 人</span></div>
+        </div>
+        <div class="work-note reveal"><span class="note-star">✳</span><p><strong>看見最多人數，不等於看見每個人。</strong><br />製造業是這份資料列出的人數最多工作類別。數字本身不會告訴我們工作時數、休息情況或個人選擇。</p></div>
+      </section>
+
+      <section class="nationality-section section-shell" aria-labelledby="nationality-title">
+        <div class="nationality-aside reveal"><p class="eyebrow"><span class="section-number">01—B</span> 國籍分布</p><h2 id="nationality-title">國籍是欄位，<br /><em>不是一種個性。</em></h2><p>統計依國籍分類，方便看見群體分布；它不能推論一個人的語言、喜好或生活故事。</p><a class="inline-link" href="https://data.gov.tw/dataset/41881" target="_blank" rel="noreferrer">查看資料集 <span aria-hidden="true">↗</span></a></div>
+        <div class="nationality-panel reveal"><div class="nationality-total"><span>縣市資料列總數</span><strong>866,275</strong><small>人 · 114 年度</small></div><div id="nationality-chart" class="nationality-chart" role="list" aria-label="依國籍顯示移工人數"></div><p class="small-note">縣市資料的統計範圍與工作類別資料不同，請勿將兩邊總數直接相加或比較。</p></div>
+      </section>
+
+      <section class="map-section section-shell" id="where" aria-labelledby="map-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span class="section-number">02</span> 縣市分布</p>
+          <h2 id="map-title">從一張地圖，<br /><em>看見不同地方。</em></h2>
+          <p>選擇國籍，觀察縣市統計如何變化。圓點位置為縣市相對位置示意；詳細數值可在右側排名查看。</p>
+        </div>
+        <div class="map-controls reveal" id="county-filter" role="group" aria-label="篩選地圖國籍"></div>
+        <div class="map-layout reveal">
+          <div class="taiwan-map-card">
+            <div class="map-card-head"><span>TAIWAN / COUNTY INDEX</span><span id="map-filter-label">所有國籍</span></div>
+            <div class="island-stage">
+              <svg class="island-shape" viewBox="0 0 300 540" aria-hidden="true"><path d="M169 13c-17 14-30 34-39 57-11 28-20 43-21 66-1 19-15 33-19 54-5 24 7 42 1 64-6 24-1 42 11 63 10 18 15 37 27 56 11 18 20 42 33 60 10 14 24 38 33 56 8 17 20 33 28 44 7 10 14 22 18 34 5-16 11-30 12-47 1-19 3-34 5-52 3-19-2-38 3-58 5-21-2-43 4-63 4-18 1-35 6-53 4-17-1-35 0-52 2-20-5-42-7-62-2-19-11-34-13-53-2-18-11-31-17-47-6-15-17-30-22-46-5-15-21-30-27-43-5-12-13-25-19-34z" /></svg>
+              <div class="map-points" id="map-points" aria-label="縣市相對位置標示"></div>
+              <div class="map-legend"><span class="legend-dot"></span> 圓點越大，該縣市資料列人數越多</div>
+            </div>
+          </div>
+          <div class="county-ranking"><div class="ranking-head"><span>縣市排名</span><span id="county-total-label">合計 866,275 人</span></div><ol id="county-list"></ol></div>
+        </div>
+        <p class="map-disclaimer">資料為縣市與國籍人數統計，不是個人居住地或工作地點的精確定位，也不能取代個人故事。</p>
+      </section>
+
+      <section class="wage-section section-shell" id="wages" aria-labelledby="wage-title">
+        <div class="wage-topline"><p class="eyebrow"><span class="section-number">03</span> 薪資保障</p><span class="wage-date">現行標準 / 2026</span></div>
+        <div class="wage-heading reveal"><h2 id="wage-title">移工的最低薪資，<br /><em>是一個數字嗎？</em></h2><p>薪資保障依工作類別與法規適用範圍而不同。請選擇一種工作，看看規則如何改變。</p></div>
+        <div class="wage-switch reveal" role="group" aria-label="選擇工作類型查看薪資規定">
+          <button class="wage-tab is-active" type="button" data-wage="covered" aria-pressed="true"><span>01</span> 適用《勞基法》的工作</button>
+          <button class="wage-tab" type="button" data-wage="care" aria-pressed="false"><span>02</span> 家庭看護工作</button>
+        </div>
+        <div class="wage-card reveal" id="wage-card" aria-live="polite">
+          <div class="wage-card-number"><span id="wage-card-label">月最低工資</span><strong id="wage-amount">29,500</strong><span id="wage-unit">元 / 月</span></div>
+          <div class="wage-card-copy"><p class="micro-label" id="wage-kicker">2026 年現行標準</p><h3 id="wage-card-title">不分國籍，依規定保障。</h3><p id="wage-card-description">適用《勞動基準法》的工作者，雇主給付工資不得低於最低工資；是否適用要依工作類別與法規判定。</p><a class="inline-link" href="https://www.mol.gov.tw/1607/1632/1633/87257/post" target="_blank" rel="noreferrer">勞動部：2026 年最低工資 <span aria-hidden="true">↗</span></a></div>
+          <div class="wage-card-side" id="wage-side-note">29,500<span>2026 月最低工資</span></div>
+        </div>
+        <div class="wage-insight reveal"><span>值得追問</span><p>家庭看護工不適用《勞動基準法》，工資依勞雇雙方約定。薪資保障的差異與工作類別有關，不是由國籍決定。</p><a href="https://www.mol.gov.tw/1607/28162/28166/28180/28182/28188/29020/" target="_blank" rel="noreferrer">查看勞動部說明 ↗</a></div>
+      </section>
+
+      <section class="closing-section section-shell" id="closing" aria-labelledby="closing-title">
+        <div class="closing-mark" aria-hidden="true">看</div>
+        <p class="eyebrow"><span class="section-number">最後一站</span> 帶著什麼離開</p>
+        <h2 id="closing-title">看見工作，<br /><em>也看見制度。</em></h2>
+        <p class="closing-intro">統計讓我們看見工作與分布，但每個人的處境不會被一個數字說完。理解移工，從看懂資料範圍、認識勞動保障開始。</p>
+        <div class="closing-points" aria-label="展覽重點">
+          <article class="closing-point"><span>01</span><h3>日常有他們</h3><p>製造、照顧、營造與農業，都和移工的勞動有關。</p></article>
+          <article class="closing-point"><span>02</span><h3>數字有範圍</h3><p>公開統計能看見群體分布，不能取代個人的生活經驗。</p></article>
+          <article class="closing-point"><span>03</span><h3>保障看制度</h3><p>勞動保障依工作類別與法規適用而異，不由國籍決定。</p></article>
+        </div>
+        <a class="closing-source-link" href="#sources">回看資料來源 <span aria-hidden="true">↗</span></a>
+      </section>
+
+      <section class="sources-section section-shell" id="sources" aria-labelledby="sources-title">
+        <div class="sources-header"><div><p class="eyebrow"><span class="section-number">資料索引</span> SOURCES & NOTES</p><h2 id="sources-title">數字都有來處。</h2></div><span class="source-period">使用資料：民國 114 年（2025）<br />薪資規定：2026 年現行標準</span></div>
+        <div class="source-grid">
+          <a class="source-item" href="https://data.gov.tw/dataset/41882" target="_blank" rel="noreferrer"><span>01 / 工作與國籍</span><strong>產業及社福外籍勞工人數<br />— 按國籍及行業分</strong><small>勞動部勞動力發展署 ↗</small></a>
+          <a class="source-item" href="https://data.gov.tw/dataset/41881" target="_blank" rel="noreferrer"><span>02 / 縣市分布</span><strong>產業及社福外籍勞工人數<br />— 按國籍及縣市分</strong><small>勞動部勞動力發展署 ↗</small></a>
+          <a class="source-item" href="https://data.gov.tw/dataset/6281" target="_blank" rel="noreferrer"><span>03 / 最低工資歷程</span><strong>基本工資之制定與調整經過</strong><small>勞動部 / 政府資料開放平臺 ↗</small></a>
+        </div>
+        <details class="method-note"><summary>資料範圍與閱讀提醒</summary><div><p>縣市資料合計 866,275 人，行業資料合計 766,212 人。勞動部統計表另區分有效聘僱許可與聘僱許可失效統計；本展覽保留兩份資料原有範圍，不將它們合併為同一分母。縣市代碼已轉為縣市名稱，圓點只作相對位置示意。</p><p>國籍與行業資料中的「其他」為彙整欄位。行政統計可以說明人數、工作類型和地區分布，不能代替當事人的生活經驗。</p><a href="https://statdb.mol.gov.tw/html/mon/212060.pdf" target="_blank" rel="noreferrer">勞動部：外籍工作者國籍與聘僱許可統計 ↗</a></div></details>
+      </section>
+    </main>
+
+    <footer class="site-footer"><a class="wordmark" href="#top"><span class="wordmark-mark">在</span><span>在場<br /><small>IN OUR DAY</small></span></a><p>看見工作，也看見人。<br /><span>一個仍在學習如何理解的展覽。</span></p><a href="#top" class="back-top">回到最上方 ↑</a><small class="footer-copy">© 2026 · 數位策展原型</small></footer>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
