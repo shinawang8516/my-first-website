@@ -8,7 +8,7 @@ Responsive static exhibition prototype. The five-question quiz, charts, county d
 
 ## Live site
 
-The GitHub Pages URL will be added after the first successful deployment.
+https://shinawang8516.github.io/my-first-website/
 
 ## Planned stack
 
